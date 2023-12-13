@@ -1,14 +1,14 @@
 # 1. Mortgage Schedule Calculator Project
-Important notes: This .xlsx project file works in excel desktop 2021 or later, excel 365, & google sheets. There are links to the project hosted in my OneDrive and google drive where you can try out a live version of my project without needing to download the .xlsx file. You can also download the .xlsx file and use it in your desktop version of excel. You also have the option of uploading the file to your OneDrive to use in excel on the web or upload the file to your google drive to use with google sheets. It is not necessary to install anything in order to understand this project because this README document will explain everything.
+Important notes: This .xlsx project file works in excel desktop 2021 or later, excel 365, & google sheets. There are links to the project hosted in my OneDrive and google drive where you can try out a live version of my project without needing to download the .xlsx file. You can also download the .xlsx file and use it in your desktop version of excel. You also have the option of uploading the file to your OneDrive to use in excel for the web or upload the file to your google drive to use with google sheets. It is not necessary to install anything in order to understand this project because this README document will explain everything.
 # 2. Personal Case
 ## a. Scenario Overview
-My sister is in the process of buying a home and needs help understanding how home loans and full amortization works before she decides on her purchase. Since she knows that I'm a data analyst, she has asked me for my help with building her a tool that will help her make the best possible decision when deciding on a fixed mortgage for her house.
+My siblings are in the process of buying a home and need help understanding how home loans and full amortization works before they decide on their purchases. Since they know that I'm a data analyst, they asked me for my help with building a tool that will help them make the best possible decision when deciding on a fixed mortgage for their homes.
 
 ## b. Project Objective
-The objective of this project is to build a tool that visually allows my sister to visualize and test the impact of different mortgage conditions and additional principal pre-payments on the mortgage payment schedule. It will also include a simple budgeting tool to help her make sure that her mortgage payments will be able to fit into her budget. The project will be built in an excel spreadsheet since my sister is familiar with the tool and since excel is a great tool for data analysis.
+The objective of this project is to build a tool that visually allows my siblings to visualize and test the impact of different mortgage conditions and additional principal pre-payments on the mortgage payment schedule. It will also include a simple budgeting tool to help her make sure that the mortgage payments will be able to fit into their budgets. The project will be built in an excel spreadsheet since both my siblings are familiar with the tool and since excel is a great tool for data analysis.
 
 ## c. Project Requirements
-1. Use excel as the primary tool and also work in google sheets.
+1. Use excel as the primary tool and also make sure that the spreadsheet will work in google sheets too.
 1. Use data validation to control what cells the users can edit and what data those editable cells can contain.
 1. Create a table that displays the important mortgage information. It should allow the users to enter the following parameters that are used for the monthly mortgage payment calculation & the total monthly payments while PMI is inactive & active calculations (Mortgage Information):
     * House Price
@@ -217,12 +217,15 @@ This table allows the user to enter their household net income and see their Mor
 ## e. Create Data Validation
 
 For the data validation I did 3 things:
-1. Use the allow edit ranges feature to limit which cells users can make edits to. These are all the yellow cells and cells that cen be orange (G26:G625). 
+1. Use the allow edit ranges feature to limit which cells users can make edits to. These are all the yellow cells and cells that can be orange (G26:G625). 
 1. Create custom data validation for each of the editable cells with custom input messages and error alerts.
 1. Protect all 3 worksheets (including the 2 hidden ones).
 
 
 # 4. Results
+If you purchase a house for $200,000 and put 10% down the principal after the inital down payment will be $180,000. If the mortgage is spread out over 30 years with a fixed 8% annual interest rate, the monthly mortgage payment will be $1320.78 per month. Assuming that additional monthly costs like taxes, utilities, & repairs will be about $500 a month on average, this would raise your monthly costs to $1820.78 per month. If you include PMI with an annual % of 2%, the monthly payment while PMI is active will be $2120.78. The PMI will stop being paid once 20% of the house price is paid ($40,000) not including interest. In this instance, $20,000 is paid off as a down payment immediately so another $20,000 of principal will need to be paid in the payment schedule to stop further PMI payments from being required. In this example, we are making additional principal pre-payments of $100 every month. The calculations in the Savings Metrics table show how much money we will save by making those additional principal pre-payments. In this case, by just putting an additional $100 a month towards the principal over the life of the loan ($28,100), we end up saving $128,875.45. If your household has a yearly net income of $60,000, this means that if you are willing to allocate 30% of your income to housing costs, it appears that you can initally afford to make the mortgage payments along with the additional $100 pre-payments. This is becuase it only costs you 28.42% of your monthly income. However, once you account for addittional monthly costs & PMI this baloons the payments to 44.42% of your monthly income going to your housing related expenses which is way above the recommended 30% of your net income. This means that it may be wise to either find a loan provider that will give you a lower interest rate or to look for a cheaper house.
+
+![This table displays the important mortgage information.](images/Output/Adjustable%20Mortgage%20Schedule%20Sheet%20with%20Results.jpg)
 
 # 5 Technical Concepts Used
 * Excel - Dynamic array formulas, spilled ranges, dynamic array functions, date & time functions, information functions, financial functions, statistical functions, logical functions, exception handling, conditional formatting, freeze panes, formula precedent and dependent values, relative referencing, fixed referencing, mixed referencing, Let() variables, autofill, formulatext(), implicit boolean type coercion, hidden sheets, data validation, allow edit ranges, & worksheet protection.
@@ -231,4 +234,32 @@ For the data validation I did 3 things:
 
 # 6. How to run the Report on your Computer
 
+## a. Excel Desktop with Microsoft 365 Subscription or Excel 2021 or later
+1. [Download the excel file from my github.](/Mortgage%20Payment%20Schedule.xlsx)
+1. Open the excel application and select file > Open > Browse > File location on your computer > Mortgage Payment Schedule.xlsx.
+
+## b. Excel for the Web using your paid Microsoft 365 Account (OneDrive)
+1. [Download the excel file from my github.](/Mortgage%20Payment%20Schedule.xlsx)
+1. [Log into your microsoft 365 account on www.office.com.](https://www.office.com)
+1. Select the OneDrive app.
+1. Upload the Mortgage Payment Schedule.xlsx file to onedrive. 
+1. Double click the Mortgage Payment Schedule.xlsx file to open it on excel for the web.
+
+## c. Excel for the Web (Free)
+1. [Download the excel file from my github.](/Mortgage%20Payment%20Schedule.xlsx)
+1. [Sign up for free for free office online for the web.](https://www.microsoft.com/en-us/microsoft-365/free-office-online-for-the-web) You will need to create a microsoft account to do this if you dont already have one.
+1. Select the OneDrive app.
+1. Upload the Mortgage Payment Schedule.xlsx file to onedrive. 
+1. Select the Mortgage Payment Schedule.xlsx file to open it on excel for the web.
+
+## d. Google Drive
+1. [Download the excel file from my github.](/Mortgage%20Payment%20Schedule.xlsx)
+1. [Sign in to your google drive account.](https://www.google.com/drive/)
+1. Select the Drive App.
+1. Upload the file: Select New > File Upload > File location on your computer > Mortgage Payment Schedule.xlsx.
+1. Double click the Mortgage Payment Schedule.xlsx to open it in the Google Sheets App. 
+
+Note that the Mortgage Payment Schedule.xlsx file should be mostly the same as in excel. The only difference is that the sheet is not protected by default when you upload the file to google drive so you will have to do that manually. 
+
 # 7. Links to Code
+* [Mortgage Payment Schedule Excel File](/Mortgage%20Payment%20Schedule.xlsx).
