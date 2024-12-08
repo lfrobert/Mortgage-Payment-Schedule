@@ -314,6 +314,28 @@ This image displays the conditional formatting rules for this worksheet.
 
 </details>
 
+</details>
+
+<details>
+<summary>Fixed Mortgage Hidden Conditional Formatting Rules</summary>
+
+![This image displays the conditional formatting rules for this worksheet.](images/Conditional%20Formatting/Fixed%20Mortgage%20Schedule%20Hidden%20Rules.jpg)
+
+This image displays the conditional formatting rules for this worksheet.
+
+
+</details>
+
+<details>
+<summary>Variable Mortgage Hidden Conditional Formatting Rules</summary>
+
+![This image displays the conditional formatting rules for this worksheet.](images/Conditional%20Formatting/Variable%20Mortgage%20Hidden%20Rules.jpg)
+
+This image displays the conditional formatting rules for this worksheet.
+
+
+</details>
+
 
 # 4. Results
 If you purchase a house for $200,000 and put 10% down the principal after the initial down payment will be $180,000. If the mortgage is spread out over 30 years with a fixed 8% annual interest rate, the monthly mortgage payment will be $1320.78 per month. Assuming that additional monthly costs like taxes, utilities, & repairs will be about $500 a month on average, this would raise your monthly costs to $1820.78 per month. If you include PMI with an annual % of 2%, the monthly payment while PMI is active will be $2120.78. The PMI will stop being paid once 20% of the house price is paid ($40,000) not including interest. In this instance, $20,000 is paid off as a down payment immediately so another $20,000 of principal will need to be paid in the payment schedule to stop further PMI payments from being required. In this example, we are making additional principal pre-payments of $100 every month. The calculations in the Savings Metrics table show how much money we will save by making those additional principal pre-payments. In this case, by just putting an additional $100 a month towards the principal over the life of the loan ($28,000), we end up saving $89,375.45. If your household has a yearly net income of $60,000, this means that if you are willing to allocate 30% of your income to housing costs, it appears that you can initially afford to make the mortgage payments along with the additional $100 pre-payments. This is because it only costs you 28.42% of your monthly income. However, once you account for additional monthly costs & PMI this balloons the payments to 44.42% of your monthly income going to your housing related expenses which is way above the recommended 30% of your net income. This means that it may be wise to either find a loan provider that will give you a lower interest rate or to look for a cheaper house.
