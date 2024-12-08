@@ -19,13 +19,14 @@ The objective of this project is to build a tool that visually allows my sibling
     * PMI Cutoff %
     * PMI % Annual
 The section will 
-1. Create a loan amortization payment schedule that displays the payment period number, date, starting principal balance, interest owed, principal owed, additional pre-payments made, principal remaining, additional costs owed, PMI owed, and total monthly payment for each payment period.
+1. Create a loan amortization payment schedule that displays the payment period number, date, starting principal balance, interest owed, principal owed, additional pre-payments made, principal remaining, additional costs owed, PMI owed, total monthly payment, cumulative interest paid, cumulative principal paid, cumulative PMI paid, cumulative housing payments paid, & cumulative housing payments paid including additional costs for each payment period.
 1. For each payment period, allow the users to enter in additional principal pre-payments to be included in the schedule's calculations for each payment period.
 1. For each payment period, include any additional costs owed (property taxes/maintenance) & PMI along with the principal to allow for a total monthly payment calculation.
 1. Allow the users to enter the start date for the loan and display the payment date for each monthly payment period.
 1. Use dynamic excel formulas & conditional formatting to automatically change the size of the payment schedule automatically based on the length of the mortgage.
 1. Create a table that displays the number of payments and how much money you will save if you make additional principal pre-payments (Savings Metrics).
 1. Create a table that allows the user to enter their household net income and see their Mortgage Payment as a % of Budget, Mortgage + Pre-Payment as a % of Budget, & Mortgage + Pre-Payment + Additional Costs + PMI as a % of Budget.
+1. Create a table that displays important dates pertaining to the mortgage and prepayments.
 # 3. Project Steps
 All of these steps will be displayed in a hidden tab called FormulaText Hidden. All of the highlighter yellow cells and orange principal pre-payment cells will display values from the Adjustable Mortgage Schedule sheet. Every other cell with an excel formula will use the formulatext() function and refer to the matching cell values on the Adjustable Mortgage Schedule sheet. This will allow me to display all the formula logic in screenshots embedded in this readme document without having to write out the code for each excel formula. You can also just download the excel file on your own computer and look at all the formulas yourself to see how it all works. 
 
@@ -45,8 +46,6 @@ To use this file correctly and make sure that all the calculations work, the use
 
 ![This table displays the important mortgage information.](images/Output/Mortgage%20Information%20Table.jpg)
 
-</details>
-
 This table displays the important mortgage information. It allows the users to enter the following parameters that are used for the monthly mortgage payment calculation & the total monthly payments while PMI is inactive & active calculations (Mortgage Information):
 
 * House Price
@@ -59,9 +58,13 @@ This table displays the important mortgage information. It allows the users to e
 
 Notice how all the required arguments are colored highlighter yellow.
 
+</details>
+
+
+
 ## b. Create the Payment Schedule Dynamic Table
 
-This table contains a loan amortization payment schedule that displays the payment period number, date, starting principal balance, interest owed, principal owed, additional pre-payments made, principal remaining, additional costs owed, PMI owed, and total monthly payment for each payment period. For each payment period, the users can optionally enter in additional principal pre-payments to be included in the schedule's calculations for each payment period. The additional prepayment cells are optional arguments for other calculations in the sheet so they are colored orange.
+This table contains a loan amortization payment schedule that displays the payment period number, date, starting principal balance, interest owed, principal owed, additional pre-payments made, principal remaining, additional costs owed, PMI owed, total monthly payment, Cumulative Interest Paid, Cumulative Principal Paid, Cumulative PMI Paid, Cumulative Housing Payments Paid, & Cumulative Housing Payments Paid Including Additional Costs for each payment period. For each payment period, the users can optionally enter in additional principal pre-payments to be included in the schedule's calculations for each payment period. The additional prepayment cells are optional arguments for other calculations in the sheet so they are colored orange.
 
 Since each excel formula in this table is large, every column will get its own image so we can see the logic of how it works. In most of the formulas in the payment schedule table, we use the LET() function with variables to make the logic of the formula easier to understand. Most of the formulas with LET() have these 3 variables in every cell. They are IsPeriodBlankCondition, IsPrincipalRemainingBlankCondition, & IsPrincipalZeroCondition. These 3 variables contain conditions that allow the calculations in the payment schedule table to dynamically decide if the cell should output an empty string or if it needs to perform a calculation for the payment period.
 
@@ -156,6 +159,51 @@ This column displays the PMI owed formula.
 </details>
 
 <details>
+<summary>Cumulative Interest Paid Column Formula</summary>
+
+![This column displays the cumulative interest paid back by the specified period.](images/FormulaText/Cumulative%20Interest%20Paid%20Column.jpg)
+
+This column displays the cumulative interest paid back by the specified period.
+
+</details>
+
+<details>
+<summary>Cumulative Principal Paid Column Formula</summary>
+
+![This column displays the cumulative principal paid back by the specified period.](images/FormulaText/Cumulative%20Principal%20Paid%20Column.jpg)
+
+This column displays the cumulative principal paid back by the specified period.
+
+</details>
+
+<details>
+<summary>Cumulative PMI Paid Column Formula</summary>
+
+![This column displays the cumulative PMI paid back by the specified period.](images/FormulaText/Cumulative%20PMI%20Paid%20Column.jpg)
+
+This column displays the cumulative PMI paid back by the specified period.
+
+</details>
+
+<details>
+<summary>Cumulative Housing Payments Paid Column Formula</summary>
+
+![This column displays the cumulative housing payments paid back by the specified period.](images/FormulaText/Cumulative%20Housing%20Payments%20Paid%20Column.jpg)
+
+This column displays the cumulative housing payments paid back by the specified period.
+
+</details>
+
+<details>
+<summary>Cumulative Housing Payments Paid Including Additional Costs Column Formula</summary>
+
+![This column displays the cumulative housing payments including additional costs paid back by the specified period.](images/FormulaText/Cumulative%20Housing%20Payments%20Paid%20Including%20Additional%20Costs%20Column.jpg)
+
+This column displays the cumulative housing payments including additional costs paid back by the specified period.
+
+</details>
+
+<details>
 <summary>Payment Schedule Table</summary>
 
 ![This table displays the output of each of the columns in the payment schedule table.](images/Output/Payment%20Schedule%20Table.jpg)
@@ -164,12 +212,16 @@ This table displays the output of each of the columns in the payment schedule ta
 
 </details>
 
+
+
+
+
 ## c. Create the Savings Metrics Table and Adjustable Mortgage Hidden Sheet
 
 <details>
 <summary>Savings Metrics Table with Formulas</summary>
 
-![This table displays the important savings metrics information.](images/FormulaText/Savings%20Metrics%20Table.jpg)
+![This table displays the important savings metrics formulas.](images/FormulaText/Savings%20Metrics%20Table.jpg)
 
 </details>
 
@@ -196,35 +248,84 @@ This hidden sheet displays a mirror of all the Mortgage Information Table & Paym
 <details>
 <summary>Impact of House Payments on Budget Table with Formulas</summary>
 
-![This table displays the important House Payment Budget information formulas.](images/FormulaText/Impact%20of%20House%20Payments%20on%20Budget%20Table.jpg)
+![This table displays the important House Payment Budget formulas.](images/FormulaText/Impact%20of%20House%20Payments%20on%20Budget%20Table.jpg)
 
 </details>
 
 <details>
 <summary>Impact of House Payments on Budget Table with Output</summary>
 
-![This table displays the important House Payment Budget information metrics.](images/Output/Impact%20of%20House%20Payments%20on%20Budget%20Table.jpg)
+![This table displays the important House Payment Budget information.](images/Output/Impact%20of%20House%20Payments%20on%20Budget%20Table.jpg)
+
+This table allows the user to enter their household net income and see their Mortgage Payment as a % of Budget, Mortgage + Pre-Payment as a % of Budget, Mortgage + Pre-Payment + Additional Costs as a % of Budget, & Mortgage + Pre-Payment + Additional Costs + PMI as a % of Budget.
+
 
 </details>
 
-This table allows the user to enter their household net income and see their Mortgage Payment as a % of Budget, Mortgage + Pre-Payment as a % of Budget, & Mortgage + Pre-Payment + Additional Costs + PMI as a % of Budget.
+## e. Create Important Dates Table
 
-## e. Create Data Validation
+<details>
+<summary>Important Dates Table with Formulas</summary>
+
+![This table displays the important dates formulas.](images/FormulaText/Important%20Dates%20Table.jpg)
+
+</details>
+
+<details>
+<summary>Impact of House Payments on Budget Table with Output</summary>
+
+![This table displays the important dates information.](images/Output/Important%20Dates%20Table.jpg)
+
+This table allows the user to see important dates and time calculations for the mortgage.
+
+
+</details>
+
+
+## f. Create Data Validation
 
 For the data validation I did 3 things:
-1. Use the allow edit ranges feature to limit which cells users can make edits to. These are all the yellow cells and cells that can be orange (G26:G625). 
-1. Create custom data validation for each of the editable cells with custom input messages and error alerts.
-1. Protect all 3 worksheets (including the 2 hidden ones).
+1. Use the allow edit ranges feature to limit which cells users can make edits to. These are all the yellow cells and orange cells on the Fixed Rate Mortgage Schedule and the Variable Rate Mortgage Schedule worksheets. 
+1. Create custom data validation for each of the editable cells with custom input messages and error alerts. The yellow cells are required to have a value. The orange cells have no input message and are optional.
+1. For the Fixed Mortgage Hidden and the Variable Mortgage Hidden and FormulaText Hidden worksheets, don't allow them to be edited by the end user.
+1. Protect all the worksheets. 
+
+## g. Create Conditional Formatting Rules
+
+These conditional formatting rules dynamically format the Payment Schedule/Cumulative Amounts Paid Table.
+
+<details>
+<summary>Fixed Rate Mortgage Schedule Conditional Formatting Rules</summary>
+
+![This image displays the conditional formatting rules for this worksheet.](images/Conditional%20Formatting/Fixed%20Rate%20Mortgage%20Schedule%20Rules.jpg)
+
+This image displays the conditional formatting rules for this worksheet.
+
+
+</details>
+
+<details>
+<summary>Variable Rate Mortgage Schedule Conditional Formatting Rules</summary>
+
+![This image displays the conditional formatting rules for this worksheet.](images/Conditional%20Formatting/Variable%20Rate%20Mortgage%20Schedule%20Rules.jpg)
+
+This image displays the conditional formatting rules for this worksheet.
+
+
+</details>
+
 
 # 4. Results
-If you purchase a house for $200,000 and put 10% down the principal after the initial down payment will be $180,000. If the mortgage is spread out over 30 years with a fixed 8% annual interest rate, the monthly mortgage payment will be $1320.78 per month. Assuming that additional monthly costs like taxes, utilities, & repairs will be about $500 a month on average, this would raise your monthly costs to $1820.78 per month. If you include PMI with an annual % of 2%, the monthly payment while PMI is active will be $2120.78. The PMI will stop being paid once 20% of the house price is paid ($40,000) not including interest. In this instance, $20,000 is paid off as a down payment immediately so another $20,000 of principal will need to be paid in the payment schedule to stop further PMI payments from being required. In this example, we are making additional principal pre-payments of $100 every month. The calculations in the Savings Metrics table show how much money we will save by making those additional principal pre-payments. In this case, by just putting an additional $100 a month towards the principal over the life of the loan ($28,100), we end up saving $128,875.45. If your household has a yearly net income of $60,000, this means that if you are willing to allocate 30% of your income to housing costs, it appears that you can initially afford to make the mortgage payments along with the additional $100 pre-payments. This is because it only costs you 28.42% of your monthly income. However, once you account for additional monthly costs & PMI this balloons the payments to 44.42% of your monthly income going to your housing related expenses which is way above the recommended 30% of your net income. This means that it may be wise to either find a loan provider that will give you a lower interest rate or to look for a cheaper house.
+If you purchase a house for $200,000 and put 10% down the principal after the initial down payment will be $180,000. If the mortgage is spread out over 30 years with a fixed 8% annual interest rate, the monthly mortgage payment will be $1320.78 per month. Assuming that additional monthly costs like taxes, utilities, & repairs will be about $500 a month on average, this would raise your monthly costs to $1820.78 per month. If you include PMI with an annual % of 2%, the monthly payment while PMI is active will be $2120.78. The PMI will stop being paid once 20% of the house price is paid ($40,000) not including interest. In this instance, $20,000 is paid off as a down payment immediately so another $20,000 of principal will need to be paid in the payment schedule to stop further PMI payments from being required. In this example, we are making additional principal pre-payments of $100 every month. The calculations in the Savings Metrics table show how much money we will save by making those additional principal pre-payments. In this case, by just putting an additional $100 a month towards the principal over the life of the loan ($28,000), we end up saving $89,375.45. If your household has a yearly net income of $60,000, this means that if you are willing to allocate 30% of your income to housing costs, it appears that you can initially afford to make the mortgage payments along with the additional $100 pre-payments. This is because it only costs you 28.42% of your monthly income. However, once you account for additional monthly costs & PMI this balloons the payments to 44.42% of your monthly income going to your housing related expenses which is way above the recommended 30% of your net income. This means that it may be wise to either find a loan provider that will give you a lower interest rate or to look for a cheaper house.
 
 ![This table displays the important mortgage information.](images/Output/Adjustable%20Mortgage%20Schedule%20Sheet%20with%20Results.jpg)
+
+![This table displays the important mortgage information.](images/Output/Adjustable%20Mortgage%20Schedule%20Sheet%20with%20Results2.jpg)
 
 # 5 Technical Concepts Used
 * Excel - Dynamic array formulas, spilled ranges, dynamic array functions, date & time functions, information functions, financial functions, statistical functions, logical functions, exception handling, conditional formatting, freeze panes, formula precedent and dependent values, relative referencing, fixed referencing, mixed referencing, expanding & collapsing ranges, Let() variables, autofill, formulatext(), implicit Boolean type coercion, hidden sheets, data validation, allow edit ranges, & worksheet protection.
 
-* Finance - Mortgage, amortization, PMI(Private Mortgage Insurance), additional costs, fixed interest rate, variable interest rate, principal, payment schedule, net income, budget, savings, starting balance, & payment periods.
+* Finance - Mortgage, amortization, PMI(Private Mortgage Insurance), additional costs, fixed interest rate, variable interest rate, principal, payment schedule, net income, budget, savings, starting balance, cumulative totals, & payment periods.
 
 # 6. How to run the Report on your Computer
 
@@ -260,6 +361,6 @@ Note that the Mortgage Payment Schedule.xlsx file should be mostly the same as i
 
 # 8. Bonus Addon (Variable Mortgage Schedule) Sheet
 
-As of December 2023, I added another sheet to this document (Variable Mortgage Schedule) that works in a similar mannerr to the (Fixed Mortgage Schedule) Sheet. The big difference is that there 2 additional columns in the Payment Schedule Table (Annual Interest Amount & Payment). The Annual Interest Amount Column allows the user to adjust the interest rate for every payment period and the Payment Column & all the other Columns will adjust to the new interest rate. In the Mortgage Information Table, the Annual Interest Rate, Monthly Interest Rate, & Mortgage Monthly Payment Rows all are now averages of what is in the Payment Schedule Table. Also, the Sum of Mortgage Before Pre-Payments & Interest Owed Before Pre-Payments rows were removed from the Mortgage Information Table becuase they are in the Savings Metrics Table and would not be accurately calculated by using the avearage Annual Interest Rate, Monthly Interest Rate, & Mortgage Monthly Payment rows anyways. In the Impact of House Payments on Budget Table, the Monthly Mortgage Payment row now takes the average of all the monthly payment amounts in the Payment Schedule Table becuase the payment amount can change month to month. The sheet with the Fixed Interest Rate that was originally named (Adjustable Mortgage Schedule) is now named (Fixed Mortgage Schedule).
+As of December 2023, I added another sheet to this document (Variable Rate Mortgage Schedule) that works in a similar manner to the (Fixed Rate Mortgage Schedule) Sheet. The big difference is that there 2 additional columns in the Payment Schedule Table (Annual Interest Amount & Payment). The Annual Interest Amount Column allows the user to adjust the interest rate for every payment period and the Payment Column & all the other Columns will adjust to the new interest rate. In the Mortgage Information Table, the Annual Interest Rate, Monthly Interest Rate, & Mortgage Monthly Payment Rows all are now averages of what is in the Payment Schedule Table. Also, the Sum of Mortgage Before Pre-Payments & Interest Owed Before Pre-Payments rows were removed from the Mortgage Information Table becuase they are in the Savings Metrics Table and would not be accurately calculated by using the avearage Annual Interest Rate, Monthly Interest Rate, & Mortgage Monthly Payment rows anyways. In the Impact of House Payments on Budget Table, the Monthly Mortgage Payment row now takes the average of all the monthly payment amounts in the Payment Schedule Table becuase the payment amount can change month to month. The sheet with the Fixed Interest Rate that was originally named (Adjustable Mortgage Schedule) is now named (Fixed Rate Mortgage Schedule).
 
 ![Mortgage Payment Schedule Excel File](images/Variable%20Rate%20Mortgage/Variable%20Mortgage%20Schedule.jpg)
